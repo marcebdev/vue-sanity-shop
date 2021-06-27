@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tommy-john-sanity',
+    title: 'vue-shop-sanity',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,6 +42,9 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  // Sanity module configuration https://sanity.nuxtjs.org/getting-started/configuration
+  sanity: { minimal: true },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
