@@ -44,14 +44,10 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-$teal: #38b2ac;
-$teal-light: #4fd1c5;
-$teal-dark: #319795;
-
 .card {
   display: flex;
   flex-direction: column;
-  background-color: rgb(244, 244, 245);
+  background-color: var(--med-gray);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 0.375rem;
@@ -60,7 +56,7 @@ $teal-dark: #319795;
 
 .image-wrapper {
   height: 300px;
-  background-color: #fff;
+  background-color: white;
 }
 
 .content {
@@ -74,19 +70,19 @@ $teal-dark: #319795;
   @include animateLink();
 
   margin-bottom: 0.5em;
-  color: $teal;
+  color: var(--teal);
 
   & :hover {
-    color: $teal-light;
+    color: var(--teal-light);
   }
 
   & :active {
-    color: $teal-dark;
+    color: var(--teal-dark);
   }
 }
 
 .price {
   margin-top: auto;
-  color: $teal;
+  color: var(--teal);
 }
 </style>

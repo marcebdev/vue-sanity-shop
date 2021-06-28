@@ -1,0 +1,27 @@
+:root {
+  --teal: #38b2ac;
+  --teal-light: #4fd1c5;
+  --teal-dark: #319795;
+  --light-gray: #f7fafc;
+  --med-gray: rgb(244, 244, 245);
+}
+
+html {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', -apple-system, BlinkMacSystemFont, Arial,
+    sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Products</h2>
+    <h2>Candies</h2>
     <div id="product-grid">
       <Product
         v-for="product in products"
