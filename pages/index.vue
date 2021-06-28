@@ -1,65 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">vue-sanity-shop</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div>
+    <h2>Products</h2>
+    <div id="product-grid">
+      <Product
+        v-for="product in products"
+        :key="product._id"
+        :product="product"
+        :w="300"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { groq } from '@nuxtjs/sanity'
 
-export default Vue.extend({})
+const query = groq`
+  {
+    "products": *[_type == "product"]
+  }
+`
+
+export default Vue.extend({
+  async asyncData({ $sanity }) {
+    // By default it returns a `Promise<unknown>`,
+    // but you can customise the type of the return.
+    const { products } = await $sanity.fetch(query)
+    console.log(products)
+    return { products }
+  },
+})
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style scoped lang="scss">
+#product-grid {
+  margin-top: 2em;
+  @include itemGrid(300px, 15px, 30px);
 }
 </style>
