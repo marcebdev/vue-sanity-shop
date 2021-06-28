@@ -3,9 +3,9 @@
     <h2>Candies</h2>
     <div id="product-grid">
       <Product
-        v-for="product in products"
-        :key="product._id"
-        :product="product"
+        v-for="candy in candySet"
+        :key="candy.id"
+        :product="candy"
         :w="300"
       />
     </div>
@@ -14,21 +14,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { groq } from '@nuxtjs/sanity'
-
-const query = groq`
-  {
-    "products": *[_type == "product"]
-  }
-`
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
-  async asyncData({ $sanity }) {
-    // By default it returns a `Promise<unknown>`,
-    // but you can customise the type of the return.
-    const { products } = await $sanity.fetch(query)
-    console.log(products)
-    return { products }
+  async fetch({ store }) {
+    await store.dispatch('candy/getCandies')
+  },
+  computed: {
+    ...mapGetters({ candySet: 'candy/candySet' }),
   },
 })
 </script>

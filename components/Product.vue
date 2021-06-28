@@ -10,7 +10,6 @@
         "
         :alt="product.title"
         loading="lazy"
-        class="image"
       />
     </nuxt-link>
 
@@ -37,7 +36,7 @@ export default Vue.extend({
   },
   computed: {
     productLink() {
-      return `/${this.product._id}`
+      return `/candies/${this.product.id}`
     },
   },
 })
