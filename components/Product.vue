@@ -36,6 +36,7 @@ export default Vue.extend({
   },
   computed: {
     productLink() {
+      // @ts-ignore
       return `/candies/${this.product.id}`
     },
   },

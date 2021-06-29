@@ -32,6 +32,8 @@ export default {
     '@nuxtjs/style-resources',
     // https://sanity.nuxtjs.org/
     '@nuxtjs/sanity/module',
+    // https://github.com/Developmint/nuxt-purgecss
+    'nuxt-purgecss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
